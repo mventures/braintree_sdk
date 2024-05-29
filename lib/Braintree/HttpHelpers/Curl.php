@@ -102,7 +102,7 @@ class Curl
         return ['status' => $httpStatus, 'body' => $response];
     }
 
-    private static function _getAuthorization($config, $useClientCredentials)
+    public static function _getAuthorization($config, $useClientCredentials)
     {
         if ($useClientCredentials) {
             return [
@@ -121,7 +121,7 @@ class Curl
         }
     }
 
-    private static function _getCaFile($config)
+    public static function _getCaFile($config)
     {
         static $memo;
 
@@ -145,7 +145,7 @@ class Curl
         return $memo;
     }
 
-    private static function _prepareMultipart($httpRequest, $requestBody, $file, $boundary)
+    public static function _prepareMultipart($httpRequest, $requestBody, $file, $boundary)
     {
         $disallow = ["\0", "\"", "\r", "\n"];
         $fileInfo = new finfo(FILEINFO_MIME_TYPE);
